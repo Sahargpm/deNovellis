@@ -1,5 +1,8 @@
-
 import "./globals.css";
+
+import Navbar from "./component/Navbar";
+import Footer from "./component/Footer";
+
 
 
 export const metadata = {
@@ -9,11 +12,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    
     <html lang="en">
-      <head>
+    
+    <head>
         <link rel="stylesheet" href="https://use.typekit.net/onu8tip.css"/>
       </head>
-      <body>{children}</body>
+ 
+      <body>
+     <Navbar></Navbar>
+      {children} 
+<Footer></Footer>     
+      </body>
     </html>
   );
 }

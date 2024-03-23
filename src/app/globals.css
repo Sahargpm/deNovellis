@@ -2,32 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  
+
+.bg-main{
+background-color: burlywood;
+}
+.custom-image{
+  background-image: url('https://images.unsplash.com/photo-1709589865176-7c6ede164354?q=80&w=2992&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.letter-spacing{
+  letter-spacing: 9px;
 }
+.body-letter-spacing{
+  letter-spacing: 2px;
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+hr.layout {
+  border-top: 0.15px solid #a38c2e;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  opacity: 0.5;
+  margin-top: 2.5rem
+;
+}
+.setOpacityofLogo{
+  opacity: 0.25;
+}
+.text-secondaryColor{
+  color: #a38c2e;
+}
+.text-primaryColor{
+  color:#233639;
+}
+.bg-primary{
+  background-color: #233639;
+  
+}
+.bg-secondary{
+  background-color: #a38c2e;
+}
+.quote-position{
+  padding-left: 7rem;
+  padding-right: 7rem;
+  margin-left: 8rem;
+  margin-right: 8rem;
+}
+.fontstyle{
+  text-size-adjust: 23px;
+}
+.border-box{
+  border-style:none;
+}
+.text-xm{
+  font-size: 11px;
 }
