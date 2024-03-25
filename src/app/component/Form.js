@@ -59,15 +59,15 @@ export default function Form() {
 
   return (
     
-    <div className="bg-primary max-w-screen-2xl h-screen pt-10 tk-pt-serif body-letter-spacing">
+    <div className="bg-primary max-w-screen-2xl  pt-10 tk-pt-serif body-letter-spacing mx-auto ">
             <div className="grid md:grid-cols-2 items-start gap-16 p-12 mx-auto max-w-7xl  text-white  rounded-md sm:grid-cols-1">
-                <div >
+              <div >
                 <h2 className='test-white pb-7 font-bold text-3xl'>CONTACT US</h2>
             <a href="mailto:info@denovellis-studio.com" className="mt-3 hover:text-gray-200">INFO@DENOVELLIS-STUDIO.COM</a>
             <br></br>
           <a href="tel:07484 651901" className='mt-3'>07484 651901</a>          
-                </div>
-              
+              </div>
+            
                 <form className="ml-auto float-start  ">
                     <label className='' htmlFor='firstname'>First name</label>
                     {error.firstname && !dataSend.firstname &&<span className=' my-2 text-red-500 text-sm'> (Required)</span>}
@@ -95,6 +95,7 @@ export default function Form() {
                   {success &&<div className='text-secondaryColor my-8 text-center text-xl'>{result}</div>}  
                 </form>
             </div>
+            <div className='h-20 md:hidden'></div>
         </div>
      
    
