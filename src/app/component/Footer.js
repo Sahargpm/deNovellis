@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <div className="w-full bg-secondary">
-    <footer className="bg-secondary max-w-screen-2xl mx-auto px-20 tk-pt-serif body-letter-spacing">
+    <div className="w-full bg-secondary ">
+    <footer className="bg-secondary max-w-screen-2xl mx-auto px-20 tk-pt-serif body-letter-spacing ">
       <nav className="mx-15 py-10 flex flex-col justify-around order-2 md:flex-row md:items-center ">
         <div className="grid md:grid-flow-col  gap-5 md:items-center">
           <Link href="/" className="text-base text-white sm:float-center float-start hover:text-gray-200">
