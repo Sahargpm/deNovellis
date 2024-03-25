@@ -1,8 +1,8 @@
 "use client"
 import Image from "next/image";
-import logo from '@/app/images/Logo.png'
+import logo from '@/app/Images/Logo.png'
 import {useState} from 'react';
-import navPattern from '@/app/images/navPattern 2.png'
+import navPattern from '@/app/Images/navPattern 2.png'
 import Link from "next/link";
 import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
 export default function Navbar() {

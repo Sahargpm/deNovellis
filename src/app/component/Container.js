@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import pattern2 from '@/app/images/horizontalpattern.png'
-import SketchImage from '@/app/images/sketch.jpg'
+import pattern2 from '@/app/Images/horizontalpattern.png'
+import SketchImage from '@/app/Images/sketch.jpg'
 export default function Conatiner() {
   return (
     

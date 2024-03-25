@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import secondarylogo from "@/app/images/secondarylogo.png"
-import leftpattern from "@/app/images/verticalleft1.png";
+import secondarylogo from "@/app/Images/secondarylogo.png"
+import leftpattern from "@/app/Images/verticalleft1.png";
 
 export default function Enquiries() {
  

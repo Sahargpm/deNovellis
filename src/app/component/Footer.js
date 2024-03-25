@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import logo from "@/app/images/secondarylogo.png"
+import logo from "@/app/Images/secondarylogo.png"
 import Link from "next/link";
 
 export default function Footer() {

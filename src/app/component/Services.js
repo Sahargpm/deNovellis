@@ -2,7 +2,7 @@
 import { useState ,useEffect} from "react";
 import Image from "next/image";
 
-import pattern2 from '@/app/images/horizontalpattern.png'
+import pattern2 from '@/app/Images/horizontalpattern.png'
 import Carousal from "./Carousal";
 import ServicesGallery from "./ServicesGallery";
 

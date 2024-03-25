@@ -1,8 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
-import Measuringservice from '@/app/images/measuring.jpg'
+import Measuringservice from '@/app/Images/measuring.jpg'
 import Interiorrender from '@/app/Images/3D render.jpg'
-import Floorplan from '@/app/images/FirstFloorplan.jpg'
+import Floorplan from '@/app/Images/FirstFloorplan.jpg'
 
 
 export default function ServicesGallery() {

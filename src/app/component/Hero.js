@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import Headerimage from '@/app/images/HeaderImage.png'
+import Headerimage from '@/app/Images/HeaderImage.png'
 export default function Hero() {
   return (
     <div className='max-w-screen-2xl mx-auto '>
