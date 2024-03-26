@@ -16,7 +16,7 @@ export default function Navbar() {
     <nav className="relative max-w-screen-2xl  tk-mrs-eaves-roman-all-petite-c top-0 bg-[#233639] text-[#ffffff] pt-3 px-7  lg:pb-8 pb-4 md:px-12 md:max-h-[254px] max-h-[210px] md:flex md:justify-around justify-center items-start mx-auto  ease-in duration-300 z-10">
      {/* <div className="absolute inset-x-0 bottom-0 "><Image className=" h-auto w-full  opacity-15" src={navPattern} /></div> */}
    
-      <div className="hidden md:flex pt-8 ">
+      <div className="hidden md:flex pt-8 hover:text-secondary hover:-translate-y-0.5 hover:text-md transform transition">
      <Link href="tel:07484 651901">
      <span className="text-2xl " >07484 651901</span>
      </Link>
@@ -35,16 +35,15 @@ export default function Navbar() {
           <Image src={logo} alt="de novellis logo" className="text-center md:h-[106px] h-[85px] w-auto"  
           ></Image></Link>
           </div>
-          <div className="hover:text-secondaryColor
- ">
+          <div >
            <p className="underline md:underline-offset-8	underline-offset-4 decoration-1  text-center text-xl/5 md:text-3xl text-secondaryColor
- body-letter-spacing" >CAD & 3D RENDERING PROPERTY</p> 
+ body-letter-spacing " >CAD & 3D RENDERING PROPERTY</p> 
           </div>
-       <div className="hover:text-secondaryColor">
+       <div >
          <p className="text-center sm:text-5xl/4 text-3xl/6  lg:text-8xl lg:leading-4 xl:text-9xl  lg:p-3 xl:leading-8 w-[100]  lg:pb-4  md:text-7xl/7 body-letter-spacing md:letter-spacing " >DESIGN SERVICES</p></div>
     </div>
-   <div className="hidden  md:flex hover:text-secondaryColor  pt-8 justify-center items-center">
-    <Link href="/contact" className="text-2xl  ">
+   <div className="hidden  md:flex  pt-8 justify-center items-center">
+    <Link href="/contact" className="text-2xl hover:text-secondaryColor hover:text-secondary hover:-translate-y-0.5 hover:text-md transform transition">
  ENQUIRIES <span className="text-lg items-center">&rarr;</span></Link>
    </div>
   <div className={
@@ -63,13 +62,13 @@ export default function Navbar() {
          <Image className="mx-auto" src={logo} alt="de novellis logo" width="134" height="134"></Image>
          </Link>
       </li>
-      <li onClick={handlesmallscreenNavigation} className="py-10 mt-15 hover:text-secondaryColor-200
+      <li onClick={handlesmallscreenNavigation} className="py-10 mt-15 hover:text-secondary hover:-translate-y-0.5 transform transition
  cursor-pointer ">
       <Link href="/contact" >
       ENQUIRIES &rarr;
       </Link>
       </li>
-      <li onClick={handlesmallscreenNavigation} className="py-5 hover:text-secondaryColor
+      <li onClick={handlesmallscreenNavigation} className="py-5 hover:text-secondary hover:-translate-y-0.5 hover:text-md transform transition
  cursor-pointer justify-center">
       <Link href="tel:07484 651901">
       <span>07484 651901</span>

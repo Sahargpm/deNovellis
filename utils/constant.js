@@ -16,5 +16,12 @@ export const imgSet=[
         src:"/measuring.jpg",
         alt:"Measuring Service available for client to get the desire look",
         detail:"Laser Measuring Service"
-    }
+    },
+
 ]
+export const Img=[{
+    id:1,
+    src:"/sketch.jpg",
+    alt:"Visual representation of Floor plans to know the structure",
+    detail:"CAD FLOORPLANS IN ANY SCALE"
+}]

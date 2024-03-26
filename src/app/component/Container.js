@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import pattern2 from '@/app/Images/horizontalpattern.png'
 import SketchImage from '@/app/Images/sketch.jpg'
+import { Img, imgSet } from "../../../utils/constant";
 export default function Conatiner() {
   return (
     
@@ -26,14 +27,15 @@ export default function Conatiner() {
       </div>
 
       <div className="relative flex items-end w-full lg:p-20 p-5 rounded-lg lg:max-w-full">
-      <Image src={SketchImage} className="object-fill  lg:px-8 px-2 md:h-[464px] h-[325px] w-full"  
+      <Image src={SketchImage} className="object-fill  lg:px-8 px-2 md:h-[464px] h-[325px] w-full "  
 ></Image>
         <div className="absolute flex item-center justify-center inset-x-0  ">
-          <div>
+          <div >
             <a
-              href="http://localhost:3000/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsketch.45ed3099.jpg&w=3840&q=75" alt="Floor-plan for structurised view of your project"
-              className="flex flex-col justify-center w-auto uppercase tk-pt-serif  text-white transition duration-150 ease-in-out bg-primary border border-transparent md:py-2 md:text-sm md:px-10 px-6 "
-            >
+          
+              href={Img[0].src} alt="Floor-plan for structurised view of your project"
+              className="flex flex-col justify-center w-auto uppercase tk-pt-serif  text-white transition duration-150 ease-in-out bg-primary border border-transparent md:py-2 md:text-sm md:px-10 px-6 
+              hover:text-secondary  hover:text-md transform transition ">
               View Floor Plan &rarr;
             </a>
             
