@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      ringColor:{
+        "secondary":"#a38c2e"
+      },
       textColor:{
         "secondary":"#a38c2e"
       },

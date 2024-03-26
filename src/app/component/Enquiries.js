@@ -27,7 +27,7 @@ export default function Enquiries() {
             <div className="absolute flex  bottom-0 justify-center inset-x-0  pt-0 sm:mt-0 sm:mx-0">
               <a
                 href="/contact"
-                className=" justify-center w-auto uppercase  py-2 text-xm md:text-lg mx-3 tk-pt-serif leading-4  text-white transition duration-150 ease-in-out bg-[#26393c] border border-transparent md:py-3 md:text-md md:px-20 px-7"
+                className=" justify-center w-auto uppercase  py-2 text-xm md:text-lg mx-3 tk-pt-serif leading-4  hover:text-secondary  text-white transition duration-150 ease-in-out bg-[#26393c] border border-transparent md:py-3 md:text-md md:px-20 px-7"
               >
                 GO TO ENQUIRY FORM &rarr;
               </a>

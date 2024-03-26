@@ -35,7 +35,7 @@ export default function Conatiner() {
           
               href={Img[0].src} alt="Floor-plan for structurised view of your project"
               className="flex flex-col justify-center w-auto uppercase tk-pt-serif  text-white transition duration-150 ease-in-out bg-primary border border-transparent md:py-2 md:text-sm md:px-10 px-6 
-              hover:text-secondary  hover:text-md transform transition ">
+              hover:text-secondary  hover:text-md transform transition  focus:ring-offset-2 focus:ring-secondary">
               View Floor Plan &rarr;
             </a>
             

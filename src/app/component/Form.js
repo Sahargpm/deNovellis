@@ -63,9 +63,9 @@ export default function Form() {
             <div className="grid md:grid-cols-2 items-start gap-16 p-12 mx-auto max-w-7xl  text-white  rounded-md sm:grid-cols-1">
               <div >
                 <h2 className='test-white pb-7 font-bold text-3xl'>CONTACT US</h2>
-            <a href="mailto:info@denovellis-studio.com" className="mt-3 hover:text-gray-200">INFO@DENOVELLIS-STUDIO.COM</a>
+            <a href="mailto:info@denovellis-studio.com" className="mt-3 hover:text-secondary hover:-translate-y-0.5 hover:text-md transform transition">INFO@DENOVELLIS-STUDIO.COM</a>
             <br></br>
-          <a href="tel:07484 651901" className='mt-3'>07484 651901</a>          
+          <a href="tel:07484 651901" className='mt-3 hover:text-secondary hover:-translate-y-0.5 hover:text-md transform transition'>07484 651901</a>          
               </div>
             
                 <form className="ml-auto float-start  ">
