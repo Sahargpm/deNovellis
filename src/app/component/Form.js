@@ -4,22 +4,51 @@ import { useState } from 'react';
 
 
 export default function Form() {
-  const initialContactState={
-    firstname:"",
-    lastname:"",
-     email:"",
-    message:""
-  }
+
   const initialErrorState={
     lastname:false,
     email:false,
     message:false
   }
-  const [dataSend, setDataSend] = useState(initialContactState)
+  const [dataSend, setDataSend] = useState({})
   const [error, setError] = useState(initialErrorState)
   const [success, setSuccess] = useState(false)
   const [status, setStatus] = useState(false)
   const [result, setResult] = useState("")
+
+  const handleInput=async(e)=>{
+    setDataSend({...dataSend,[e.target.name]:e.target.value})
+    setError(initialErrorState);
+    let hasError=false;
+    await Object.keys(initialErrorState).map((error)=>{
+    if(dataSend[error]==""){
+    setError({...error,[error]:true});
+   hasError=true
+    }});
+    if(hasError) return;
+    }
+    const addData=async(e)=>{
+    e.preventDefault();
+    try{
+      const response=await fetch('/api/dbconnection',{
+        method:"POST",
+        headers:{
+          "Content-Type":"application.json()"
+        },
+        body:JSON.stringify(dataSend)
+      })
+        if(response.ok)
+        {
+          alert("Sussess")
+        }
+        else{
+          console.log("Data not added")
+        }
+    
+    }
+    catch(err){console.log(err
+      )}
+    }
 
 //   const handleSubmit=async (event)=>{
 //     event.preventDefault();
@@ -72,25 +101,25 @@ export default function Form() {
                     <label className='' htmlFor='firstname'>First name</label>
                     {error.firstname && !dataSend.firstname &&<span className=' my-2 text-red-500 text-sm'> (Required)</span>}
 
-                    <input type='text' id="firstname" placeholder="Firstname" required="" value={dataSend.firstname??""} onBlur={()=>setError({...error,firstname:true})} onChange={(e)=>setDataSend({...dataSend,firstname:e.target.value})} className="w-full rounded-md py-4  px-4 mb-4 border text-sm outline-[#a38c2e] text-black" />
+                    <input type='text' id="firstname" name="First Name" placeholder="Firstname" required="" onBlur={()=>setError({...error,firstname:true})} onChange={handleInput} className="w-full rounded-md py-4  px-4 mb-4 border text-sm outline-[#a38c2e] text-black" />
                    
                     <label className=' mt-4' htmlFor='lastname' >Last name</label>
                     {error.lastname && !dataSend.lastname &&<span className='my-2 text-red-500 text-sm'> (Required)</span>}
 
-                    <input type='text' id="lastname" required="" placeholder="Lastname" value={dataSend.lastname??""} onBlur={()=>setError({...error,lastname:true})} onChange={(e)=>setDataSend({...dataSend,lastname:e.target.value})} className="w-full rounded-md py-4 mb-4 px-4 border text-sm outline-[#a38c2e] text-black" />
+                    <input type='text' id="lastname" required="" name="Last Name" placeholder="Lastname"  onBlur={()=>setError({...error,lastname:true})} onChange={handleInput} className="w-full rounded-md py-4 mb-4 px-4 border text-sm outline-[#a38c2e] text-black" />
 
                     <label className='mt-4' htmlFor='email'>Email</label>
                     {error.email && (!dataSend.email ||!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(dataSend.email)) &&<span className='mx-2 my-2 text-red-500 text-sm'>Enter your Email Address(Required)</span>}
 
-                    <input type='email' id="email" placeholder='Email' value={dataSend.email??""} onBlur={()=>setError({...error,email:true})} onChange={(e)=>setDataSend({...dataSend,email:e.target.value})}
+                    <input type='email' id="email" placeholder='Email' name="Email" onBlur={()=>setError({...error,email:true})} onChange={handleInput}
                         className="w-full rounded-md py-4 px-4 mb-6 border text-sm outline-[#a38c2e] text-black" />
 
                     <label className='mt-4' htmlFor='message'>Message</label>
                     {error.message && !dataSend.message &&<span className='mx-2 my-2 text-red-500 text-sm'>(Required)</span>}
-                    <textarea id="message" placeholder='Message' rows="6" value={dataSend.message??""} onBlur={()=>setError({...error,message:true})} onChange={(e)=>setDataSend({...dataSend,message:e.target.value})}
+                    <textarea id="message" placeholder='Message' name="Message" rows="6" onBlur={()=>setError({...error,message:true})} onChange={handleInput}
                         className="w-full text-black rounded-md mb-6 px-4 border text-sm pt-2.5 outline-[#a38c2e]"></textarea>
 
-                    <button type='submit ' className='my-4 w-32 bg-white text-black rounded-md py-3 hover:bg-[#a38c2e]'>Send Email</button>
+                    <button type='submit' onClick={addData} className='my-4 w-32 bg-white text-black rounded-md py-3 hover:bg-[#a38c2e]'>Send Email</button>
                 {status && <div className='my-8 text-center text-xl text-white transition duration-500 ease-in-out'>Sending....</div>}
                   {success &&<div className='text-secondaryColor my-8 text-center text-xl'>{result}</div>}  
                 </form>
