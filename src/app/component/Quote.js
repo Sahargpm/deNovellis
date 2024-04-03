@@ -1,9 +1,20 @@
-import React from "react";
+"use client"
+import React, { useRef } from "react";
+import {motion, useScroll, useTransform,useMotionValue} from "framer-motion"
 import Image from "next/image";
 import pattern2 from '@/app/Images/horizontalpattern.png'
 
 
 export default function Quote() {
+  const targetRef=useRef(null)
+  const {scrollYProgress}=useScroll({
+    target:targetRef,
+    offset:["start end","end start"]
+  })
+  const variants={
+      visible:{opacity:1,y:20,scale:1.2},
+      hidden:{opacity:0,scale:1}
+     }
   return (
     <section className="max-w-screen-2xl mx-auto ">
       <div className=" bg-secondary px-6 md:px-20 py-20  text-center relative">
@@ -28,8 +39,12 @@ export default function Quote() {
             <p className=" uppercase  text-white  tracking-widest md:leading-8  md:text-lg leading-5 text-md tk-pt-serif md:mx-12 mx-2">
             WE URGENTLY NEEDED 50:1 FLOOR PLAN FOR YOUR 18TH CENTURY HOLIDAY LET FOR NEW GOVERNMENTAL COMPLIANCE. DANIEL WAS VERY HELPFUL, CHARMING AND PROVIDED EXCELLENT WORK AND SERVICE. I WOULD RECOMMEND DANIELA TO ANYONE NEEDING PROFESSIONAL FLOORPLANS. THANK YOU AGAIN!
             </p>
-            <p className="text-sm  uppercase  text-[#233639] pt-5 tk-pt-serif ">
-            ELSPETH PAGET, GOGKBURNSPATH, SCOTTISH BORDERS </p>
+            <motion.p ref={targetRef} 
+    variants={variants}
+    initial="hidden"
+    whileInView="visible"
+    transition={{duration:2}} className="text-sm  uppercase  text-[#233639] pt-5 tk-pt-serif ">
+            ELSPETH PAGET, GOGKBURNSPATH, SCOTTISH BORDERS </motion.p>
           </blockquote>
           <div>
 

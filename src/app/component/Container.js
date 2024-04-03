@@ -1,18 +1,38 @@
-import React from "react";
+"use client"
+import React, { useRef } from "react";
+import {motion, useScroll, useTransform,useMotionValue} from "framer-motion"
 import Image from "next/image";
 import pattern2 from '@/app/Images/horizontalpattern.png'
 import SketchImage from '@/app/Images/sketch.jpg'
 import { Img, imgSet } from "../../../utils/constant";
 export default function Conatiner() {
+
+  const targetRef=useRef(null)
+  const {scrollYProgress}=useScroll({
+    target:targetRef,
+    offset:["end end","end start"]
+  })
+  const variants={
+      visible:{opacity:1,x:40},
+      hidden:{opacity:0,scale:1}
+     }
+  // const opacity=useTransform(scrollYProgress,[0, 0.5, 1],[0, 1, 0])
+  
   return (
     
 
-    <div className='max-w-screen-2xl mx-auto bg-primary lg:px-20 relative'>
+    <div
+   
+    className='max-w-screen-2xl mx-auto bg-primary lg:px-20 relative'>
           <div className="absolute md:px-20 top-0 justify-center "><Image className=" h-20 w-auto justify-center" alt="Floor-plan for structurised view of your project" src={pattern2} /></div>
 
     <div className="flex flex-col items-center max-w-full  mx-auto md:flex-row md:px-7">
 
-      <div className="items-center md:max-w-full md:py-20 lg:px-0 px-4 py-20">
+      <motion.div ref={targetRef} 
+    variants={variants}
+    initial="hidden"
+    whileInView="visible"
+    transition={{duration:2}} className="items-center md:max-w-full md:py-20 lg:px-0 px-4 py-20">
         <div className="text-left text-white">
           <span className=" lg:text-5xl text-3xl/5 body-letter-spacing leading-4 text-white tk-mrs-eaves-roman-all-petite-c pb-4">PROFESSIONAL CAD DESIGN SERVICES FOR </span><span className="text-secondaryColor lg:text-5xl/8 text-3xl/4 pb-7 body-letter-spacing tk-mrs-eaves-roman-all-petite-c">EDINBURGH, EAST LOTHIAN & SCOTTISH BORDERS</span>
           <div className="flex h-auto p-2 pl-10">
@@ -24,7 +44,7 @@ export default function Conatiner() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <div className="relative flex items-end w-full lg:p-20 p-5 rounded-lg lg:max-w-full">
       <Image src={SketchImage} className="object-fill  lg:px-8 px-2 md:h-[464px] h-[325px] w-full "  

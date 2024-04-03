@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 
 export default function Form() {
+  
   const initialDatasendState={
     firstname:false,
     lastname:false,
@@ -26,14 +27,16 @@ export default function Form() {
     setDataSend({...dataSend,[e.target.name]:e.target.value})
     setError(initialErrorState);
     let hasError=false;
-    await Object.keys(initialErrorState).map((error)=>{
-    if(dataSend[error]==""){
-    setError({...error,[error]:true});
+    await Object.keys(initialErrorState).map((err)=>{
+    if(dataSend[err]==""){
+    setError({...error,[err]:true});
     hasError=true
     }});
     if(hasError) return;
     }
-    const addData=async(e,setStatus)=>{
+
+
+    const addData=async(e)=>{
     e.preventDefault();
     try{
     
@@ -46,9 +49,11 @@ export default function Form() {
       })
         if(response.ok)
         {
-          setStatus=true
+          setStatus(false)
+          setDataSend(initialDatasendState)
+          setSuccess(true)
+          setError(initialErrorState)
           alert("Your Message send Successfully!!")
-
         }
         else{
           console.log("Data not added")
@@ -107,29 +112,26 @@ export default function Form() {
               </div>
             
                 <form className="ml-auto float-start  ">
-                    <label className='' htmlFor='firstname'>First name</label>
+                    <label className='' htmlFor='firstname'>First name</label> 
 
                     <input type='text' id="firstname" name="First Name" placeholder="Firstname" required="" onBlur={()=>setError({...error,firstname:true})} onChange={handleInput} className="w-full rounded-md py-4  px-4 mb-4 border text-sm outline-[#a38c2e] text-black" />
-                    {error.firstname && !dataSend.firstname&&<span className=' my-2 text-red-500 text-sm'> (Required)</span>}
+                    {error.firstname && !dataSend.firstname &&<span className='my-2 text-red-500 text-sm'> (Required)</span>}
 
                     <label className=' mt-4' htmlFor='lastname' >Last name</label>
-                    {error.lastname && !dataSend.lastname &&<span className='my-2 text-red-500 text-sm'> (Required)</span>}
-
                     <input type='text' id="lastname" required="" name="Last Name" placeholder="Lastname"  onBlur={()=>setError({...error,lastname:true})} onChange={handleInput} className="w-full rounded-md py-4 mb-4 px-4 border text-sm outline-[#a38c2e] text-black" />
-
+                    {error.lastname && !dataSend.lastname &&<span className='my-2 text-red-500 text-sm'> (Required)</span>}
                     <label className='mt-4' htmlFor='email'>Email</label>
-                    {error.email && (!dataSend.email ||!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(dataSend.email)) &&<span className='mx-2 my-2 text-red-500 text-sm'>Enter your Email Address(Required)</span>}
 
                     <input type='email' id="email" placeholder='Email' name="Email" onBlur={()=>setError({...error,email:true})} onChange={handleInput}
                         className="w-full rounded-md py-4 px-4 mb-6 border text-sm outline-[#a38c2e] text-black" />
+                    {error.email && (!dataSend.email ||!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(dataSend.email)) &&<span className='mx-2 my-2 text-red-500 text-sm'>Enter your Email Address(Required)</span>}
 
                     <label className='mt-4' htmlFor='message'>Message</label>
-                    {error.message && !dataSend.message &&<span className='mx-2 my-2 text-red-500 text-sm'>(Required)</span>}
                     <textarea id="message" placeholder='Message' name="Message" rows="6" onBlur={()=>setError({...error,message:true})} onChange={handleInput}
                         className="w-full text-black rounded-md mb-6 px-4 border text-sm pt-2.5 outline-[#a38c2e]"></textarea>
-
-                    <button type='submit' onClick={error?addData:""} className='my-4 w-32 bg-white text-black rounded-md py-3 hover:bg-[#a38c2e]'>Send Email</button>
-                {status && <div className='my-8 text-center text-xl text-white transition duration-500 ease-in-out'>Sending....</div>}
+                    {error.message && !dataSend.message &&<span className='mx-2 my-2 text-red-500 text-sm'>(Required)</span>}
+                    {status && <div className='my-8 text-center text-xl text-white transition duration-500 ease-in-out'>Sending....</div>}
+                    <button type='submit' onClick={addData} className='my-4 w-32 bg-white text-black rounded-md py-3 hover:bg-[#a38c2e]'>Send Email</button>
                   {success &&<div className='text-secondaryColor my-8 text-center text-xl'>{result}</div>}  
                 </form>
             </div>

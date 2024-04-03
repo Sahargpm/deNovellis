@@ -1,4 +1,6 @@
 "use client"
+import React, { useRef } from "react";
+import {motion, useScroll, useTransform,useMotionValue} from "framer-motion"
 import Image from "next/image";
 import logo from '@/app/Images/Logo.png'
 import {useState} from 'react';
@@ -6,6 +8,15 @@ import navPattern from '@/app/Images/navPattern 2.png'
 import Link from "next/link";
 import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
 export default function Navbar() {
+  const targetRef=useRef(null)
+  const {scrollYProgress}=useScroll({
+    target:targetRef,
+    offset:["end end","end start"]
+  })
+  const variants={
+      visible:{opacity:1,y:2,scale:1},
+      hidden:{opacity:1,scale:0.6}
+     }
   const [menuIcon,setMenuIcon]=useState(false);
   const handlesmallscreenNavigation=(()=>{
     setMenuIcon(!menuIcon)
@@ -13,7 +24,7 @@ export default function Navbar() {
   return (
 <div className="w-full bg-secondary">
 
-    <nav className="relative max-w-screen-2xl  tk-mrs-eaves-roman-all-petite-c top-0 bg-[#233639] text-[#ffffff] pt-3 px-7  lg:pb-8 pb-4 md:px-12 md:max-h-[254px] max-h-[210px] md:flex md:justify-around justify-center items-start mx-auto  ease-in duration-300 z-10">
+    <nav className="sticky relative max-w-screen-2xl  tk-mrs-eaves-roman-all-petite-c top-0 bg-[#233639] text-[#ffffff] pt-3 px-7  lg:pb-8 pb-4 md:px-12 md:max-h-[254px] max-h-[210px] md:flex md:justify-around justify-center items-start mx-auto  ease-in duration-300 z-10">
      {/* <div className="absolute inset-x-0 bottom-0 "><Image className=" h-auto w-full  opacity-15" src={navPattern} /></div> */}
    
       <div className="hidden md:flex pt-8 hover:text-secondary hover:-translate-y-0.5 hover:text-md transform transition">
@@ -29,12 +40,16 @@ export default function Navbar() {
   </div>
      <div className="flex flex-col items-center justify-center ">
 
-          <div className="items-center justify-center">
+          <motion.div ref={targetRef} 
+    variants={variants}
+    initial="hidden"
+    whileInView="visible"
+    transition={{duration:2}}  className="items-center justify-center">
             
           <Link href="/" >
           <Image src={logo} alt="de novellis logo" className="text-center md:h-[106px] h-[85px] w-auto"  
           ></Image></Link>
-          </div>
+          </motion.div>
           <div >
            <p className="underline md:underline-offset-8	underline-offset-4 decoration-1  text-center text-xl/5 md:text-3xl text-secondaryColor
  body-letter-spacing " >CAD & 3D RENDERING PROPERTY</p> 
