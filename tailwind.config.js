@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      outlineColor:{
+        "secondary":"#a38c2e"
+      },
       ringColor:{
         "secondary":"#a38c2e"
       },

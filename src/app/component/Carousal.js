@@ -1,10 +1,12 @@
 "use client"
 import React from 'react'
+import {motion} from "framer-motion"
+import {fadeIn} from '../../../variants'
 import { useState ,useEffect} from 'react'
 // import useScreenSize from './useScreenSize';
 import { imgSet } from '/utils/constant'
 
-import {AiOutlineArrowLeft,AiOutlineArrowRight} from 'react-icons/ai'
+import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
 
 
 import Image from 'next/image'
@@ -48,8 +50,9 @@ export default function Carousal() {
         </div>
      ))}
           <div>
-            <AiOutlineArrowLeft onClick={leftClick} size={20} className='active absolute inset-y-0 left-1 my-auto text-white [&.active]:text-secondaryColor hover:bg-secondary'></AiOutlineArrowLeft>
-            <AiOutlineArrowRight onClick={rightClick} size={20} className=' absolute inset-y-0 right-1 my-auto text-white hover:bg-secondary'></AiOutlineArrowRight>
+
+            <IoIosArrowBack onClick={leftClick} size={25} className='bg-secondary rounded-full outline outline-offset-2  active absolute inset-y-0 left-1 my-auto text-white [&.active]:text-secondaryColor hover:scale-110'></IoIosArrowBack>
+            <IoIosArrowForward onClick={rightClick} size={25} className='bg-secondary rounded-full outline outline-offset-2  absolute inset-y-0 right-1 my-auto text-white hover:bg-secondary'></IoIosArrowForward>
           </div>
    </div>
   )

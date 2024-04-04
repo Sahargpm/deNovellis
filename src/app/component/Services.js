@@ -1,7 +1,8 @@
 "use client"
 import { useState ,useEffect} from "react";
 import Image from "next/image";
-
+import {motion} from "framer-motion"
+import {fadeIn} from '../../../variants'
 import pattern2 from '@/app/Images/horizontalpattern.png'
 import Carousal from "./Carousal";
 import ServicesGallery from "./ServicesGallery";
@@ -24,9 +25,12 @@ export default function Services() {
       </div>
       <div className="max-w-screen-2xl  px-6 mx-auto md:px-20 xl:px-20">
         <div className="mb-10 px-6 md:px-0">
-          <h2 className="text-center  md:text-6xl  text-white text-3xl  tk-mrs-eaves-roman-all-petite-c">
+          <motion.h2 variants={fadeIn('up',0.4)}
+    initial="hidden"
+    whileInView={'visible'}
+    viewport={{once:false,amount:0.3}} className="text-center  md:text-6xl  text-white text-3xl  tk-mrs-eaves-roman-all-petite-c">
             Our
-        </h2>
+        </motion.h2>
            <h2 className="text-center text-secondaryColor text-3xl/5 md:text-6xl/8 tk-mrs-eaves-roman-all-petite-c">
            Service
           </h2>
