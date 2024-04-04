@@ -1,5 +1,8 @@
+"use client"
 import React from "react";
 import Image from "next/image";
+import {motion} from "framer-motion"
+import {fadeIn} from '../../../variants'
 import secondarylogo from "@/app/Images/secondarylogo.png"
 import leftpattern from "@/app/Images/verticalleft1.png";
 
@@ -7,7 +10,10 @@ export default function Enquiries() {
  
   return (
     <div className="bg-primary pb-32 max-w-screen-2xl mx-auto">
-      <div className="flex flex-row mx-20 justify-end relative">
+      <motion.div variants={fadeIn('right',0.3)}
+    initial="hidden"
+    whileInView={'visible'}
+    viewport={{once:false,amount:0.7}} className="flex flex-row mx-20 justify-end relative">
         <div className="relative bg-secondary max-w-4xl flex-col">
           <div className="md:pb-10 md:pt-5 pt-3 pb-6 px-10 md:mx-20px mx-5px ">
             <Image
@@ -43,7 +49,7 @@ export default function Enquiries() {
             height="80"
           />
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

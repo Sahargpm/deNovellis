@@ -1,4 +1,7 @@
+"use client"
 import React from "react";
+import {motion} from "framer-motion"
+import {fadeIn} from '../../../variants'
 import Image from "next/image";
 import logo from "@/app/Images/Logo.png";
 import leftpattern from "@/app/Images/verticalleft1.png";
@@ -40,11 +43,14 @@ export default function Step() {
             </div>
             <div className=" m-3 md:max-w-4xl flex-col text-xl tk-pt-serif">
               <h2 className="text-white">
-                <span className="text-secondaryColor ">Consultancy: </span ><span>Lorem
+                <span className="text-secondaryColor ">Consultancy: </span ><motion.span variants={fadeIn('left',0.3)}
+    initial="hidden"
+    whileInView={'visible'}
+    viewport={{once:false,amount:0.7}}>Lorem
                 ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
                 insum suspendisse ultrices gravida. Risus commode viverra
-                maecenas accumsan lacus vel facilisis</span>
+                maecenas accumsan lacus vel facilisis</motion.span>
               </h2>
             </div>
           </div>
@@ -56,9 +62,12 @@ export default function Step() {
             <div className=" m-3 max-w-4xl flex-col text-xl">
               <h2 className="text-white tk-pt-serif">
                 <span className="text-secondaryColor  ">Laser measuring: </span>
-               <span> Sed do eiusmod temnor incididunt ut lahore et dolore magna
+               <motion.span variants={fadeIn('right',0.3)}
+    initial="hidden"
+    whileInView={'visible'}
+    viewport={{once:false,amount:0.3}}> Sed do eiusmod temnor incididunt ut lahore et dolore magna
                 alioua. Quis insum suspendisse ultrices cravida. Kisus commodo
-                viverra maecenas accumsan lacus vel facilisis</span>
+                viverra maecenas accumsan lacus vel facilisis</motion.span>
               </h2>
             </div>
           </div>
@@ -71,9 +80,12 @@ export default function Step() {
               <h2 className="text-white tk-pt-serif">
                 <span className="text-secondaryColor">
                   CAD desion of floor plans: </span>
-                <span>Sed do eiusmod temnor incididunt ut labore et dolore maona
+                <motion.span variants={fadeIn('left',0.3)}
+    initial="hidden"
+    whileInView={'visible'}
+    viewport={{once:false,amount:0.3}}>Sed do eiusmod temnor incididunt ut labore et dolore maona
                 alioua. Ouis ipsum suspendisse ultrices gravida. Risus commodo
-                viverra maecenas accumsan lacus vel facilisis</span>
+                viverra maecenas accumsan lacus vel facilisis</motion.span>
               </h2>
             </div>
           </div>

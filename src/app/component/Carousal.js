@@ -51,7 +51,7 @@ export default function Carousal() {
      ))}
           <div>
 
-            <IoIosArrowBack onClick={leftClick} size={25} className='bg-secondary rounded-full outline outline-offset-2  active absolute inset-y-0 left-1 my-auto text-white [&.active]:text-secondaryColor hover:scale-110'></IoIosArrowBack>
+            <IoIosArrowBack  onClick={leftClick} size={25} className='bg-secondary rounded-full outline outline-offset-2  active absolute inset-y-0 left-1 my-auto text-white [&.active]:text-secondaryColor hover:scale-110'></IoIosArrowBack>
             <IoIosArrowForward onClick={rightClick} size={25} className='bg-secondary rounded-full outline outline-offset-2  absolute inset-y-0 right-1 my-auto text-white hover:bg-secondary'></IoIosArrowForward>
           </div>
    </div>
