@@ -40,9 +40,9 @@ export default function Enquiries() {
             </div>
           </div>
         </div>
-        <div className="mx-12 float-end hidden md:block">
+        <div className="grid grid-col  grid-flow-row items-center mx-auto ">
           <Image
-            className=""
+            className="mx-12 float-end hidden md:block flex-col"
             alt=""
             src={leftpattern}
             width="100"
