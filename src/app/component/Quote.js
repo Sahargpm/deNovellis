@@ -22,7 +22,6 @@ export default function Quote() {
 
         <figure className="md:mx-12 md:px-14 2xl:quote-position">
           <div>
-
           <svg
             className="md:h-14 h-6 mb-3 text-[#233639] dark:text-gray-600"
             viewBox="0 0 24 27"

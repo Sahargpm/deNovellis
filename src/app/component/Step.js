@@ -28,9 +28,9 @@ export default function Step() {
       </div>
       <div className="flex flex-row ">
       
-        <div className="grid grid-rows md:grid-flow-col grid-flow-row items-center mx-auto ">
+        <div className="grid grid-rows  grid-flow-col items-center mx-auto ">
             <Image
-              className="md:row-span-3 hidden lg:block"
+              className="md:row-span-3 hidden md:block"
               src={leftpattern}
              
               width="120"
