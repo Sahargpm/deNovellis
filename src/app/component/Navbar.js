@@ -7,8 +7,10 @@ import {useState} from 'react';
 import navPattern from '@/app/Images/navPattern 2.png'
 import Link from "next/link";
 import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
+import Headroom from "react-headroom";
 export default function Navbar() {
   const targetRef=useRef(null)
+  
   const {scrollYProgress}=useScroll({
     target:targetRef,
     offset:["end end","end start"]
@@ -23,7 +25,7 @@ export default function Navbar() {
   })
   return (
 <div className="w-full bg-secondary">
-
+<Headroom>
     <nav className="sticky relative max-w-screen-2xl  tk-mrs-eaves-roman-all-petite-c top-0 bg-[#233639] text-[#ffffff] pt-3 px-7  lg:pb-8 pb-4 md:px-12 md:max-h-[254px] max-h-[210px] md:flex md:justify-around justify-center items-start mx-auto  ease-in duration-300 z-10">
      {/* <div className="absolute inset-x-0 bottom-0 "><Image className=" h-auto w-full  opacity-15" src={navPattern} /></div> */}
    
@@ -94,7 +96,8 @@ export default function Navbar() {
     </div>
   </div>
     </nav>
-  
+    </Headroom>
+
     </div>
       );
     }
