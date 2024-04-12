@@ -9,7 +9,7 @@ import leftpattern from "@/app/Images/verticalleft1.png";
 export default function Enquiries() {
  
   return (
-    <div className="bg-primary pb-32 max-w-screen-2xl mx-auto">
+<div className="bg-primary pb-32 max-w-screen-2xl mx-auto">
       <motion.div variants={fadeIn('right',0.3)}
     initial="hidden"
     whileInView={'visible'}
@@ -40,9 +40,9 @@ export default function Enquiries() {
             </div>
           </div>
         </div>
-        <div className="grid grid-col  grid-flow-row items-center mx-auto ">
+        <div className="mx-12 float-end hidden md:block">
           <Image
-            className="mx-12 float-end hidden md:block flex-col"
+            className=""
             alt=""
             src={leftpattern}
             width="100"
@@ -53,3 +53,11 @@ export default function Enquiries() {
     </div>
   );
 }
+
+
+
+
+
+
+
+   
