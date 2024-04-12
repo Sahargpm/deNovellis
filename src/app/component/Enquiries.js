@@ -40,7 +40,7 @@ export default function Enquiries() {
             </div>
           </div>
         </div>
-        <div className="mx-12 float-end hidden md:block">
+        <div className="mx-12 float-end hidden lg:block">
           <Image
             className=""
             alt=""
