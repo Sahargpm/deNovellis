@@ -1,9 +1,9 @@
 "use client"
 import React from 'react';
 import { useState } from 'react';
-
-  
+import { CiCircleCheck} from "react-icons/ci";  
 export default function Form() {
+  const [modalshow,setModalshow]=useState(false)
   const [value,setValue]=useState({
     firstname:"",
     lastname:"",
@@ -30,7 +30,11 @@ export default function Form() {
             })
               if(response.ok)
               { 
-                alert("Your Message send Successfully!!")
+                  setModalshow(true)
+                  setTimeout(() => {
+                    setModalshow(false)
+                  }, 1000);
+              
               }
              
           }
@@ -91,6 +95,19 @@ export default function Form() {
                     <textarea id="message" placeholder='Message' name="message" rows="6"  onChange={handleInput} value={value.message}
                         className="w-full text-black rounded-md mb-6 px-4 border text-sm pt-2.5 outline-[#a38c2e]"></textarea>
                     <button type='submit' onClick={addData} className='my-4 w-32 bg-white text-black rounded-md py-3 hover:bg-[#a38c2e]'>Send Email</button>
+                    { modalshow?
+    <div className="fixed left-0 top-0 bg-black bg-opacity-50 w-screen h-screen flex  justify-center items-center">
+
+    <div className="bg-white rounded shadow-md p-8 w-[30%] flex gap-4 flex-col justify-center items-center ">
+      <div className="bg-primary rounded-full w-7 h-7 flex justify-center items-center min-w-[40px] min-h-[40px]">
+    <CiCircleCheck className="min-w-[30px] min-h-[30px]"/>
+    </div>
+    <div>
+    <h4 className="text-black">Message Send Successfully</h4>
+    </div>
+    </div>
+    </div>
+    :""}
                 </form>
             </div>
             <div className='h-20 md:hidden'></div>
