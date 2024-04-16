@@ -12,9 +12,8 @@ import Carousal from "./component/Carousal";
 export default function Home() {
   
   return (
-    <div  className="w-full bg-secondary" > 
-      
-      <Hero></Hero>
+    <div  className="w-full bg-secondary" >   
+      <Hero ></Hero>
       <Container></Container>
       <Quote></Quote>
       <Services></Services>
