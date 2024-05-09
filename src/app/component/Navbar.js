@@ -49,7 +49,7 @@ export default function Navbar() {
    
       <div className="hidden md:flex pt-8 hover:text-secondary hover:-translate-y-0.5 hover:text-md transform transition">
      <Link href="tel:07484 651901">
-     <span className={`${isScrollingUp ? 'text-xl': 'text-2xl'}`} >07484 651901</span>
+     <span className="text-2xl" >07484 651901</span>
      </Link>
      </div>
   
@@ -79,7 +79,7 @@ export default function Navbar() {
 </div>
     </div>
    <div className="hidden  md:flex  pt-8 justify-center items-center">
-    <Link href="/contact" className={`${isScrollingUp? 'text-xl' :'text-2xl'} hover:text-secondaryColor hover:text-secondary hover:-translate-y-0.5 hover:text-md transform transition`}>
+    <Link href="/contact" className="text-2xl hover:text-secondaryColor hover:text-secondary hover:-translate-y-0.5 hover:text-md transform transition">
  ENQUIRIES <span className="text-lg items-center">&rarr;</span></Link>
    </div>
   <div className={
