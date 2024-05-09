@@ -3,14 +3,31 @@ import React, { useRef } from "react";
 import {motion, useScroll, useTransform,useMotionValue} from "framer-motion"
 import Image from "next/image";
 import logo from '@/app/Images/Logo.png'
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import navPattern from '@/app/Images/navPattern 2.png'
 import Link from "next/link";
 import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
 import Headroom from "react-headroom";
 export default function Navbar() {
-  const targetRef=useRef(null)
-  
+  const targetRef=useRef(null);
+  const [prevScrollY, setPrevScrollY] = useState(0);
+  const { scrollY } = useScroll();
+  const [isScrollingUp, setIsScrollingUp] = useState(false);
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY ;
+      setIsScrollingUp(prevScrollY > currentScrollY);
+      setPrevScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollY]);
   const {scrollYProgress}=useScroll({
     target:targetRef,
     offset:["end end","end start"]
@@ -25,13 +42,14 @@ export default function Navbar() {
   })
   return (
 <div className="w-full bg-secondary">
-<Headroom>
-    <nav className="sticky relative max-w-screen-2xl  tk-mrs-eaves-roman-all-petite-c top-0 bg-[#233639] text-[#ffffff] pt-3 px-7  lg:pb-8 pb-4 md:px-12 md:max-h-[254px] max-h-[210px] md:flex md:justify-around justify-center items-start mx-auto  ease-in duration-300 z-10">
+<Headroom >
+    <nav className={`relative max-w-screen-2xl tk-mrs-eaves-roman-all-petite-c top-0 bg-[#233639] text-[#ffffff] pt-3 px-7 pb-4 md:px-12  md:flex md:justify-around 
+    justify-center items-start mx-auto ease-in duration-300 z-10 ${isScrollingUp ? 'h-[100px] md:px-3' : 'h-[200px]'}`}>
      {/* <div className="absolute inset-x-0 bottom-0 "><Image className=" h-auto w-full  opacity-15" src={navPattern} /></div> */}
    
       <div className="hidden md:flex pt-8 hover:text-secondary hover:-translate-y-0.5 hover:text-md transform transition">
      <Link href="tel:07484 651901">
-     <span className="text-2xl " >07484 651901</span>
+     <span className={`${isScrollingUp ? 'text-xl': 'text-2xl'}`} >07484 651901</span>
      </Link>
      </div>
   
@@ -49,18 +67,19 @@ export default function Navbar() {
     transition={{duration:2}}  className="items-center justify-center">
             
           <Link href="/" >
-          <Image src={logo} alt="de novellis logo" className="text-center md:h-[106px] h-[85px] w-auto"  
+          <Image src={logo} alt="de novellis logo" className={`${isScrollingUp? 'md-scrollup  ':'md:md-img-size'}text-center img-size w-auto `}  
           ></Image></Link>
           </motion.div>
-          <div >
-           <p className="underline md:underline-offset-8	underline-offset-4 decoration-1  text-center text-xl/5 md:text-3xl text-secondaryColor
- body-letter-spacing " >CAD & 3D RENDERING PROPERTY</p> 
-          </div>
-       <div >
-         <p className="text-center sm:text-5xl/4 text-3xl/6  lg:text-8xl lg:leading-4 xl:text-9xl  lg:p-3 xl:leading-8 w-[100]  lg:pb-4  md:text-7xl/7 body-letter-spacing md:letter-spacing " >DESIGN SERVICES</p></div>
+          <div className={`${isScrollingUp ? 'hidden' : ''}`}>
+  <p className="text-xl/3 md:text-3xl underline-offset-4 underline decoration-1 text-center text-secondaryColor body-letter-spacing">CAD & 3D RENDERING PROPERTY</p>
+</div>
+
+<div className={`${isScrollingUp ? 'hidden' : ''}`}>
+       <p className="text-5xl lg:text-6xl sm:text-5xl lg:leading-4 xl:text-8xl lg:p-3 xl:leading-8 w-[100] lg:pb-4 md:text-7xl/7 body-letter-spacing md:letter-spacing">DESIGN SERVICES</p>
+</div>
     </div>
    <div className="hidden  md:flex  pt-8 justify-center items-center">
-    <Link href="/contact" className="text-2xl hover:text-secondaryColor hover:text-secondary hover:-translate-y-0.5 hover:text-md transform transition">
+    <Link href="/contact" className={`${isScrollingUp? 'text-xl' :'text-2xl'} hover:text-secondaryColor hover:text-secondary hover:-translate-y-0.5 hover:text-md transform transition`}>
  ENQUIRIES <span className="text-lg items-center">&rarr;</span></Link>
    </div>
   <div className={
